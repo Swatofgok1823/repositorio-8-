@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center> <H1>EJERCICIO 3 </H1></center> 
+    <script>
+
+function Restaurante(plato, cantidad, precio){
+        this.plato = plato;
+        this.cantidad = cantidad;
+        this.precio = precio;
+    }
+
+    let plato1 = new Restaurante(`arroz con pollo`, `2`, 20000 )
+
+    console.log({plato1});
+
+    Restaurante.prototype.descuentoPedido = function(){
+        const precioTotal = this.cantidad * this.precio;
+        if (precioTotal >= 50000) {
+            const descuento = 10
+            const descuentoPrecioTotal = (descuento/100)*precioTotal
+            const cuentaFinal = precioTotal - descuentoPrecioTotal 
+            console.log(`El valor de su compra es de ${precioTotal} `+
+            `pero se le aplica un descuento de ${descuentoPrecioTotal} `+
+            `por lo que su cuenta final es de ${cuentaFinal}`)
+        } else {
+            console.log(`El valor de su cuenta es de ${precioTotal} \n`+
+            'Para aplicar al descuento el valor total debe ser mayor a 50 MIL')
+        }
+    }
+
+    plato1.descuentoPedido();
+
+    function RestauranteDomicilio(plato, cantidad, precio, tiempoEntrega, valorDomicilio){
+        this.super = Restaurante;
+        this.super(plato, cantidad, precio);
+        this.tiempoEntrega = tiempoEntrega;
+        this.valorDomicilio = valorDomicilio;
+    }
+ 
+    RestauranteDomicilio.prototype = new Restaurante();
+    RestauranteDomicilio.prototype.constructor = Restaurante;
+
+    let pedidoDomicilio = new RestauranteDomicilio(`hamburguesa`, `2`, 2000, `1hr`, 2500)
+
+    console.log({pedidoDomicilio});
+
+    let nombreRestaurante = 'Sabores del mundo';
+
+    const miRestaurante = {
+    informacionRestaurante(){
+                console.log (`Nombre del Restaurante : ${nombreRestaurante} 
+    Tipo de Cocina : Comida gourtmet 
+    Dirección : Calle Principal, Número 123, Mosquera, Colombia.
+    Horario de apertura : Lunes a Viernes
+    Reservas : Aceptamos reservas para grupos grandes.`);
+               
+        }  
+    }
+
+    miRestaurante.informacionRestaurante();
+
+    RestauranteDomicilio.prototype.descuentoPedido = function(){
+        const precioTotal = this.cantidad * this.precio + this.valorDomicilio;
+        if (precioTotal >= 50000) {
+            const descuento = 10
+            const descuentoPrecioTotal = (descuento/100)*precioTotal
+            const cuentaFinal = precioTotal - descuentoPrecioTotal 
+            const masDomicilio = cuentaFinal
+            console.log(`El valor de su compra es de ${masDomicilio} `+
+            `porque se le aplica un descuento de ${descuentoPrecioTotal} `+
+            `y se le suman ${this.valorDomicilio} del domicilio`)
+        } else {
+            console.log(`El valor de su cuenta es de ${precioTotal} \n porque incluye `+
+            `${this.valorDomicilio} del comicilio \n Para aplicar al `+
+            `descuento el valor total debe ser mayor a 50K`)
+        }
+    }
+
+    pedidoDomicilio.descuentoPedido();
+
+
+
+    </script>

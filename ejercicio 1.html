@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>hola sena</h1>
+    <script>
+function Sedan(marca, linea, modelo, cilindraje, precio, nivelGasolina){
+    this.marca = marca;
+    this.linea = linea;
+    this.modelo = modelo;
+    this.cilindraje = cilindraje;
+    this.precio =  precio;
+    // this.revisionMecanica= revisionMecanica;
+    // this.nivelGasolina = nivelGasolina   
+}
+
+   
+
+    
+    
+Sedan.prototype.tecno = function(){
+    
+  let d = new  Date();
+  let n = d.getFullYear();
+
+  if (n-this.modelo < 5) {
+    console.log("no tecno")
+    return
+  } 
+    console.log("tecno")
+    
+  
+
+
+}
+
+Sedan.prototype.nivelGasolina = function(){
+
+    console.log((`el nivel de gasolina es de `) +(Math.floor(Math.random () *101))+ ( `%`));
+}
+
+
+let carro1 = new Sedan( `Audi`,`R8 s`,`2015 `,`2000`,`$100.000`)
+console.log({carro1})
+carro1.nivelGasolina();
+carro1.tecno();
+
+// herencia
+function Automovil(marca, linea, modelo, cilindraje, precio, numeroPasajeros, tipoCaja){   
+    this.super = Sedan;
+    this.super(marca, linea, modelo, cilindraje, precio);
+    this.numeroPasajeros= numeroPasajeros;
+    this.tipoCaja = tipoCaja;
+
+}
+// automovil hereda de sedan
+Automovil.prototype= new Sedan();
+Automovil.prototype.constructor =Sedan;
+
+let carro2 = new Automovil(`Audi`,`R8 s`,`2015`,`2000`,`$100.000 M`,3, `automatica`)
+ console.log({carro2});
+Automovil.prototype.numCinturones= function(){
+    console.log(`el carro tiene 4 cinturones pero solo se estan usando ${this.numeroPasajeros}`)
+} 
+carro2.numCinturones();
+
+
+    </script>
+    
+</body>
+</html>

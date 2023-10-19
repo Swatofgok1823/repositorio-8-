@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <center> <H1>EJERCICIO 2 </H1></center> 
+    <script>
+console.log("EJERCICIO NUMERO 2")
+
+function Instructor(nombre, linea, jornada){
+    this.nombre = nombre;
+    this. linea = linea;
+    this. jornada= jornada;
+}
+
+let instructor1 = new Instructor(`Jorge`, `software`, `dia`,);
+console.log({instructor1})
+
+Instructor.prototype.progFormacion= function(){
+
+    switch(this.linea){
+        case `software`:
+            return(`analisis y desarrollo de software`);
+            break;
+
+        case `hardware`: 
+            return(`administracion de redes`);
+            break;
+
+        default: 'otro programa'
+            return (`no hay registro`)
+        }
+
+}
+console.log(instructor1.progFormacion());
+
+
+    function InstructorPlanta(nombre, linea, jornada, fechaVin){   
+        this.super = Instructor;
+        this.super(nombre, linea, jornada);
+        this.fechaVin=fechaVin ; 
+    }
+    InstructorPlanta.prototype= new Instructor();
+    InstructorPlanta.prototype.constructor =Instructor;
+
+    let instructor2 = new InstructorPlanta(`Andres`, `software`,`mixta`,`2023-06-14`)
+
+    console.log({instructor2})
+
+    InstructorPlanta.prototype.restaDia= function(){
+        let fecha1 = new Date();
+        let fecha2 = new Date(this.fechaVin)
+
+        let miliSegundos= 24 * 60 * 60 * 1000;
+
+        let miliSegundosTranscurridos= Math.abs(fecha1.getTime()- fecha2.getTime());
+        let diasTranscurridos = Math.round(miliSegundosTranscurridos/miliSegundos);
+    return Math.round(diasTranscurridos/30) ;
+    }
+    console.log(`el instructor ${instructor2.nombre} lleva trabajando ${instructor2.restaDia()} meses con la institución`)
+
+
+
+
+
+    
+
+    
+
+
+    </script>
+</body>
+</html>

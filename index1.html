@@ -1,0 +1,96 @@
+<!DOCT
+YPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width= , initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>HOLA SENA</h1>
+    <script>
+console.log('hola mundo')
+        //      tododo el texto en js`
+
+function Usuarios(documento, nombre, apellidos, edad, ficha, programa) {
+        this.documento= documento;    
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.edad = edad;
+        this.ficha = ficha;
+        this.programa = programa;
+    }
+
+// let aprendiz1 = new Aprendiz(`123456`, `german antonio`, `cordoba`, 24, `2798618`, `ADSO`);
+
+
+// console.log({aprendiz1})
+// // objeto...
+// const aprendizPrototype = {
+//     saludar(){
+//         console.log(`hola, me llamo ${this.nombre}` + `y tengo ${this.edad} años` );
+//     },
+
+//     despedida(){
+//         console.log(`feliz aprendizaje, les desea ${this.nombres}` + ` ${this.apellidos}`)
+//     },
+
+//     estudiar (){
+//         console.log(`matriculado en la ficha ${this.ficha} ` + ` y cursando 1er trimestre del progrma ${this.programa}`);
+//     }
+// }
+
+// Object.assing(Aprendiz.prototype, aprendizPrototype);
+let aprendiz1 = new Usuarios(`123456`, `german antonio`, `cordoba`, 24, `2798618`, `ADSO`);
+
+console.log({aprendiz1})
+
+// objeto
+Aprendiz.prototype.saludar = function(){
+    console.log(`hola me llamo ${this.nombres}` + ` y tengo ${this.edad} años`);
+}
+
+Aprendiz.prototype.despedida = function(){
+    console.log(`feliz aprendizaje! les desea ${this.nombres}` +` ${this.apellidos}`);
+}
+
+Aprendiz.prototype.estudiar = function(){
+    console.log(`matricuado en la ficha ${this.ficha}`+` y cursando 1 er trimestre del programa ${this.programa}`);
+}
+// Herencia prototipica
+function AprendizEtapaPractica (documento, nombres, apellidos, edad, ficha, programa, empresa, funcion){
+    this.super = Aprendiz;
+    this.super(documento, nombre, apellidos, edad, ficha, programa );
+    this.empresa= empresa ;
+    this. funcion = funcion;
+}
+
+// aprendz etapa productiva hereda de apendiz 
+AprendizEtapaPractica.prototype = new Aprendiz();
+AprendizEtapaPractica.prototype.constructor = Aprendiz;
+
+//sobre escritura de metodo heredado 
+AprendizEtapaPractica.prototype.estudiar = function(){
+    console.log(`termine etapa lectiva y me encuentro en etapa productiva`);
+} 
+
+
+//adicion de nuevo metodo 
+AprendizEtapaPractica.prototype.trabajar = function(){
+    console.log(`estoy trabajando en la empresa ${this.empresa}` + `cumpliendo funciones de ${this.funcion}`);
+}
+
+let aprendiz2 = new AprendizEtapaPractia(`123456`, `sandra patricia`,`sandoval`, 24, `27986180`, `ADSO`, `IED Pompilo Martinez`, `instructora`); 
+
+
+
+
+
+
+
+
+        
+        </script>
+</body>

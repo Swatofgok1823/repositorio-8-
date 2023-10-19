@@ -1,0 +1,95 @@
+<!DOCT
+YPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width= , initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>HOLA SENA</h1>
+    <script>
+        // console.log('hola mundo')
+        //     // tododo el texto en js`
+
+        // function Usuarios(nombre, documento, edad) {
+        //     this.nombre = nombre;
+        //     this.documento;
+        //     this.edad = edad;
+        // }
+
+        // Usuarios.prototype.saludar = function() {
+        //     console.log(`hola, me llamo ${this.nombre}`);
+        // }
+
+        // Usuarios.prototype.despedida = function() {
+        //     console.log(`hasta pronto, les dice ${this.nombre}`);
+        // }
+        const aprendiz1 = {
+            nombre: "Andres",
+            documento: "123456",
+            edad: 12,
+
+            saludar: function() {
+                console.log(`hola, me llamo ${this.nombre}` + ` y tengo ${this.edad} años`);
+            },
+            despedida: function() {
+                console.log(`feliz aprendizaje les desea ${this.nombre}`);
+            }
+
+        }
+console.log("Tarea 1")
+    // despliega la configuracion delobjeto aprendiz
+console.log({aprendiz1})
+
+console.log("Tarea 2")
+// Notacion punto
+// Ejecutar los metodos del objeto 
+aprendiz1.saludar();
+aprendiz1.despedida();
+
+console.log("Tare 3")
+//cambiar atributos
+aprendiz1.nombre = `Andres Calamaro`;
+aprendiz1. saludar();
+
+console.log("Tarea 4")
+// adicionar atributos al objeto 
+aprendiz1['apellidos']= 'cordoba';
+aprendiz1['nombre']= 'german antonio';
+aprendiz1.saludar();
+
+console.log("Tarea 5")
+//cambia metodo del objeto 
+aprendiz1['edad']=24;
+aprendiz1.saludar =function(){
+    console.log(`hola me llamo ${this.nombre} ${this.apellidos}`+ ` y tengo ${this.edad} años`);
+}
+aprendiz1.saludar();
+
+console.log ("Tarea 6");
+// adicionar atributos y metodos al objeto mediante la variable 
+const ficha = "ficha";
+const numFicha = "2798618";
+const progFicha = "ADSO";
+aprendiz1[ficha] = numFicha;
+aprendiz1[`programa`] = progFicha;
+aprendiz1.estudiar = function(){
+    console.log(`Estoy matriculado en la ficha ${this.ficha}` + ` y curso el 1er trimestre del programa ${this.programa}!`);
+}
+aprendiz1.estudiar();
+
+
+
+
+
+    </script>
+
+
+</body>
+
+</html>
+
+</html>
